@@ -7,8 +7,12 @@ import Card from "@/app/components/card/Card";
 import Image from "next/image";
 import {useTheme} from "@/app/context/ThemeContext";
 
+// @ts-ignore
+import { useRouter } from 'next/router';
+
 const OpenSource: React.FC = () => {
     const { currentTheme: { theme } } = useTheme();
+    const { basePath } = useRouter();
 
     return (
         <>
@@ -24,7 +28,11 @@ const OpenSource: React.FC = () => {
                     <a href="https://github.com/garethslinn" target="_blank" rel="noopener noreferrer" aria-label="Visit Gareth Slinn's GitHub">
                         <Image
                             className="img"
-                            src={theme === "light" ? "/assets/images/brands/github.svg" : "/assets/images/brands-white/github.svg"}
+                            src={
+                                theme === "light"
+                                    ? `${basePath}/assets/images/brands/github.svg`
+                                    : `${basePath}/assets/images/brands-white/github.svg`
+                            }
                             alt='GitHub Link'
                             width={30}
                             height={30}
@@ -38,7 +46,7 @@ const OpenSource: React.FC = () => {
                 <Card
                     title="HelprJS"
                     link="https://www.npmjs.com/package/helprjs"
-                    imageSrc="/assets/images/helprjs.png"
+                    imageSrc={`${basePath}/assets/images/helprjs.png`}
                 >
                     HelpRJS is a versatile toolkit designed to assist developers in solving challenging tasks involving objects and arrays.
                     It provides a comprehensive set of methods that are fully documented and supported with live demos, making it incredibly
@@ -60,7 +68,7 @@ const OpenSource: React.FC = () => {
                 <Card
                     title="Guardly"
                     link="https://www.npmjs.com/package/guardly"
-                    imageSrc="/assets/images/guardly.png"
+                    imageSrc={`${basePath}/assets/images/guardly.png`}
                 >
                     Guardly is a JavaScript/TypeScript library that provides a suite of security helper methods
                     designed to enhance the security of web applications. It includes methods for preventing
@@ -92,7 +100,7 @@ const OpenSource: React.FC = () => {
                 <Card
                     title="API Security Gateway"
                     link="https://www.npmjs.com/package/api-security-gateway"
-                    imageSrc="/assets/images/api-security-gateway.png"
+                    imageSrc={`${basePath}/assets/images/api-security-gateway.png`}
                 >
                     A security gateway for APIs with features such as rate limiting, IP whitelisting, and injection prevention. This library helps you secure your APIs by controlling access and preventing common attack vectors.
                     <br/><br/>

@@ -14,8 +14,11 @@ import { RecommendationsProps } from "@/app/components/recommendations/Recommend
 import {useTheme} from "@/app/context/ThemeContext";
 import Image from "next/image";
 
+// @ts-ignore
+import { useRouter } from 'next/router';
 const Recommendations: React.FC<RecommendationsProps> = ({ recommendations }) => {
     const { currentTheme: { theme } } = useTheme();
+    const { basePath } = useRouter();
     return (
         <RecommendationWrapper>
             {recommendations.map((rec, index) => (
@@ -45,7 +48,7 @@ const Recommendations: React.FC<RecommendationsProps> = ({ recommendations }) =>
                     </QuoteIconContainer>
                     <Name id={`rec-name-${index}`}>
                             <Image
-                                src={rec.image}
+                                src={`${basePath}${rec.image}`}
                                 alt={rec.Name}
                                 width={50}
                                 height={50}

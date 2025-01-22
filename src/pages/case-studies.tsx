@@ -9,13 +9,18 @@ import CaseStudyAIG from "@/app/constants/casestudies/aig";
 import CaseStudyDugout from "@/app/constants/casestudies/dugout";
 import CaseStudyBT from "@/app/constants/casestudies/bt";
 
+// @ts-ignore
+import { useRouter } from 'next/router';
+
 const CaseStudies: React.FC = () => {
 
+    const { basePath } = useRouter();
+
     const tabs = [
-        { label: 'Argos', content: <CaseStudyArgos />, imageSrc: '/assets/images/brands/argos.svg' },
-        { label: 'AIG', content: <CaseStudyAIG />, imageSrc: '/assets/images/brands/aig.svg' },
-        { label: 'Dugout', content: <CaseStudyDugout />, imageSrc: '/assets/images/brands/dugout.svg' },
-        { label: 'BT', content: <CaseStudyBT />, imageSrc: '/assets/images/brands/bt.svg' }
+        { label: 'Argos', content: <CaseStudyArgos />, imageSrc: `${basePath}/assets/images/brands/argos.svg`},
+        { label: 'AIG', content: <CaseStudyAIG />, imageSrc: `${basePath}/assets/images/brands/aig.svg`},
+        { label: 'Dugout', content: <CaseStudyDugout />, imageSrc: `${basePath}/assets/images/brands/dugout.svg`},
+        { label: 'BT', content: <CaseStudyBT />, imageSrc: `${basePath}/assets/images/brands/bt.svg`}
     ];
 
     return (

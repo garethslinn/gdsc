@@ -16,6 +16,7 @@ import React from "react";
 import ChartsContainer from "@/app/components/charts/chartsContainer/ChartsContainer";
 
 export default function Experience() {
+
     return (
         <>
             <section aria-labelledby="experience">

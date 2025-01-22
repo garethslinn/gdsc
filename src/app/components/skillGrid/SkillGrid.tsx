@@ -11,6 +11,9 @@ import {
     SkillYears
 } from './SkillGrid.styles';
 
+// @ts-ignore
+import { useRouter } from 'next/router';
+
 const getYearsOfExperience = (year_started: string | null, fixed_years: number | null): number => {
     if (year_started) {
         return new Date().getFullYear() - parseInt(year_started, 10);
@@ -30,12 +33,16 @@ const TechSkillsGrid: React.FC<TechSkillsGridProps> = ({ data }) => {
         }))
         .sort((a, b) => b.years - a.years);
 
+    const { basePath } = useRouter();
+
     return (
         <FullWrapper>
             <GridContainer role="list">
                 {sortedData.map((skill, index) => (
                     <GridItem key={index} role="listitem">
-                        <SkillImage src={skill.image} alt={skill.title} />
+                        <SkillImage
+                            src={basePath ? `${basePath}/${skill.image}` : skill.image}
+                            alt={skill.title} />
                         <SkillTitle><abbr title={skill.title}>{skill.abbr}</abbr></SkillTitle>
                         <SkillYears aria-label={`Years of experience: ${skill.years}`}>
                             {skill.years}
