@@ -22,6 +22,9 @@ import Counter from "@/app/components/counter/Counter";
 import useDeviceType from "@/app/hooks/useDeviceType";
 import { useTheme } from "styled-components"; // Import useTheme
 
+// @ts-ignore
+import { useRouter } from 'next/router';
+
 const QuoteTool: React.FC<{ quoteText?: string }> = ({ quoteText = "Professional Experience" }) => {
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const [activeTitle, setActiveTitle] = useState<string>(companies[0].title);
@@ -38,6 +41,8 @@ const QuoteTool: React.FC<{ quoteText?: string }> = ({ quoteText = "Professional
         outlineColor: theme.colors.black, // Directly use theme's color
         hoverFillColor: "#ccc",
     };
+
+    const { basePath } = useRouter();
 
     const handleNavLeft = () => {
         setIsUserInteracting(true);
@@ -81,7 +86,7 @@ const QuoteTool: React.FC<{ quoteText?: string }> = ({ quoteText = "Professional
             <ElementWrapper>
                 <ChildWrapper>
                     <LeftColumn>
-                        <Icon src="/assets/images/experience.svg" alt="Icon" />
+                        <Icon src={`${basePath}/assets/images/experience.svg`} alt="Icon" />
                         <QuoteText>{quoteText}</QuoteText>
                     </LeftColumn>
                     <RightColumn>

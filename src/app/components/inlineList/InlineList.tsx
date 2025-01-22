@@ -7,6 +7,9 @@ import {
     CompanyTitle,
 } from './InlineList.style';
 
+// @ts-ignore
+import { useRouter } from 'next/router';
+
 interface Company {
     title: string;
     image: string;
@@ -34,6 +37,8 @@ const InlineList: React.FC<CompaniesListProps> = ({
     const containerRef = useRef<HTMLDivElement>(null);
     const [itemWidth, setItemWidth] = useState(100);
     const [visibleItems, setVisibleItems] = useState(1);
+
+    const { basePath } = useRouter();
 
     useEffect(() => {
         const handleResize = () => {
@@ -87,7 +92,10 @@ const InlineList: React.FC<CompaniesListProps> = ({
                         tabIndex={index === activeIndex ? 0 : -1}
                         aria-label={`Company ${company.title}`}
                     >
-                        <CompanyImage src={company.image} alt={company.title} />
+                        <CompanyImage
+                            src={basePath ? `${basePath}/${company.image}` : company.image}
+                            alt={company.title}
+                        />
                         <CompanyTitle>&nbsp;</CompanyTitle>
                     </Company>
                 ))}
