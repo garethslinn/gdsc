@@ -15,7 +15,11 @@ import SkillCards from "@/app/components/skillCards/SkillCards";
 import { softSkills } from "@/app/constants/softSkills";
 import ImageDisplay from "@/app/components/imageDisplay/ImageDisplay";
 
+// @ts-ignore
+import { useRouter } from 'next/router';
+
 const GraphicDesign: React.FC = () => {
+    const { basePath } = useRouter();
     return (
         <>
             <section aria-labelledby="design">
@@ -37,7 +41,7 @@ const GraphicDesign: React.FC = () => {
 
             <ImageDisplay
                 title="A Matter Of Perspective"
-                image="/assets/images/design/perspective.png"
+                image={`${basePath}/assets/images/design/perspective.png`}
                 imageRight={false}
             >
                 <p>The first image showcases my process of setting up the perspective
@@ -50,7 +54,7 @@ const GraphicDesign: React.FC = () => {
 
             <ImageDisplay
                 title="A Coffee Shop Scene"
-                image="/assets/images/design/coffee.png"
+                image={`${basePath}/assets/images/design/coffee.png`}
                 imageRight
             >
                 <p>The next image is a drawing of a coffee shop rendered in perspective
@@ -64,7 +68,7 @@ const GraphicDesign: React.FC = () => {
 
             <ImageDisplay
                 title="An Impossible Cafe"
-                image="/assets/images/design/cafe.png"
+                image={`${basePath}/assets/images/design/cafe.png`}
                 imageRight={false}
             >
                 <p>A great design should look simple, and the cartoon perspective effect,
@@ -77,7 +81,7 @@ const GraphicDesign: React.FC = () => {
 
             <ImageDisplay
                 title="Logo design"
-                image="/assets/images/logo.svg"
+                image={`${basePath}/assets/images/logo.svg`}
                 imageRight
             >
                 <p>Transforming the letter &quot;G&quot; into a logo involves using vibrant colors,
@@ -89,7 +93,7 @@ const GraphicDesign: React.FC = () => {
 
             <ImageDisplay
                 title="Every plaque has its place"
-                image="/assets/images/design/slinns-gym-final.png"
+                image={`${basePath}/assets/images/design/slinns-gym-final.png`}
                 imageRight={false}
             >
                 <p>The final piece is a plaque I designed for my home gym. This logo was printed
