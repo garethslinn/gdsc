@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
         <>
             <Title first text="Contact Page" />
             <Paragraph first backgroundColor="#f1f1f1" foregroundColor="">
-                Some placeholder text...
+                Some placeholder text....
             </Paragraph>
         </>
     )

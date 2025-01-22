@@ -1,5 +1,4 @@
 /**
- /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
@@ -10,6 +9,8 @@ const nextConfig = {
     images: {
         unoptimized: true, // Disable Image Optimization for static export
     },
+    assetPrefix: process.env.NODE_ENV === 'production' ? '/gdsc' : undefined,
+    basePath: process.env.NODE_ENV === 'production' ? '/gdsc' : undefined,
 };
 
 module.exports = nextConfig;
