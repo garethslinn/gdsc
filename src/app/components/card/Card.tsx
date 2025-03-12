@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { CardProps } from './Card.types';
 import { CardContainer, Title, Description, ImageWrapper, ContentWrapper } from './Card.styles';
 
-const Card: React.FC<CardProps> = ({ title, link, imageSrc, children }) => {
+const Card: React.FC<CardProps> = ({ title, link, imageSrc, noLink, children    }) => {
     return (
         <CardContainer>
             <Title>{title}</Title>
@@ -14,8 +14,10 @@ const Card: React.FC<CardProps> = ({ title, link, imageSrc, children }) => {
                     <Image src={imageSrc} alt={title} width={300} height={300} />
                 </ImageWrapper>
             </ContentWrapper>
-            <a className="learn-more" href={link} target="_blank" rel="noopener noreferrer"><span>Learn more</span></a>
-        </CardContainer>
+            {!noLink &&
+                <a className="learn-more" href={link} target="_blank" rel="noopener noreferrer"><span>Learn more</span></a>
+            }
+         </CardContainer>
     );
 };
 

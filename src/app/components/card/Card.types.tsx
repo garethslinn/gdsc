@@ -6,4 +6,5 @@ export interface CardProps {
     link: string;
     imageSrc: string;
     children: ReactNode;
+    noLink?: boolean;
 }
