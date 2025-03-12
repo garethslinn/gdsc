@@ -1,3 +1,5 @@
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
     reactStrictMode: true,
     output: 'export',
@@ -6,8 +8,8 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
-    assetPrefix: process.env.NODE_ENV === 'production' ? '/gdsc' : undefined,
-    basePath: process.env.NODE_ENV === 'production' ? '/gdsc' : undefined,
+    basePath: isProd ? '' : '',
+    assetPrefix: isProd ? '' : ''
 };
 
 module.exports = nextConfig;
