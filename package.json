@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "clean": "rm -rf .next && npm run build && npm run start",
-    "build": "next build",
+    "clean": "rm -rf .next && rm -rf dist && npm run build",
+    "build": "next build && touch dist/.nojekyll",
     "start": "next start",
-    "deploy": "gh-pages -d dist -r https://github.com/garethslinn/gdsc.git",
-    "lint": "next lint"
+    "predeploy": "npm run clean && npm run build",
+    "deploy": "gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.4",

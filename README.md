@@ -9,7 +9,7 @@ npm run build
 npm run deploy
 
 
-echo > dist/.nojekyll && git add -f dist/.nojekyll && git commit -m "Add .nojekyll after deployment" && git push origin gh-pages --force
+echo > .nojekyll && git add -f .nojekyll && git commit -m "Add .nojekyll after deployment" && git push origin gh-pages --force
 ```
 
 Because this is hosted on github there is a requirement to
