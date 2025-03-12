@@ -12,7 +12,7 @@ const About: React.FC = () => {
 
     return (
         <>
-            <Title first text="Developing Custom Solutions Tailored to Your Needs" />
+            <Title first text="Developing Custom Solutions Tailored to Your Needs." />
             <Paragraph first foregroundColor="">
                 With over 20 years of experience in front-end development, UX/UI design, and full-stack engineering,
                 GDS Consulting specialises in creating accessible, inclusive, and high-performing digital experiences.
